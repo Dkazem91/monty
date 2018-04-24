@@ -1,6 +1,10 @@
 #ifndef MONTY_H
 #define MONTY_H
+
 #include <stdlib.h>
+#include <stdio.h>
+#define LINE_MAX = 1024
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -30,6 +34,7 @@ typedef struct instruction_s
         char *opcode;
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
-#endif
 
-//random comment
+/* create a global variable to hold arguments for push */
+extern int push_arg;
+#endif
