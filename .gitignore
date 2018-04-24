@@ -1,0 +1,10 @@
+*
+!*/
+*~
+*#
+*.out
+!*.c
+!*.h
+!README.md
+!.gitignore
+.#*
