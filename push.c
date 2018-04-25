@@ -10,9 +10,8 @@
 void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new;
-	char *push_arg = strtok(NULL, " \n\t");
+	char *push_arg = strtok(NULL, "\n \t");
 	int pVal;
-
 	/*if push, tests if the push_arg was valid or not */
 	if (!is_int(push_arg))
 	{
