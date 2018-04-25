@@ -3,7 +3,11 @@
 
 #include <stdlib.h>
 #include <stdio.h>
-#define LINE_MAX = 1024
+#include <string.h>
+#include <ctype.h>
+
+#define UNUSED(x) (void)(x)
+#define LINE_MAX 1024
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -36,5 +40,15 @@ typedef struct instruction_s
 } instruction_t;
 
 /* create a global variable to hold arguments for push */
-extern int push_arg;
+extern char *push_arg;
+
+instruction_t *parse_line(char *line);
+void free_stack(stack_t *head);
+char *get_opcode(char* string);
+int is_int(char *str);
+void push(stack_t **stack, unsigned int line_number);
+void pall(stack_t **stack, unsigned int line_number);
+void pint(stack_t **stack, unsigned int line_number);
+void pop(stack_t **stack, unsigned int line_number);
+
 #endif
