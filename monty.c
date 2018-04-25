@@ -87,5 +87,5 @@ int main(int argc, char **argv)
 		free(line);
 	free_stack(top);
 	fclose(file_in);
-	return (EXIT_SUCCESS);
+	return (0);
 }
