@@ -17,7 +17,7 @@ instruction_t *parse_line(char *line)
 	instruction->f = NULL;
 
 	/* opcode control statements */
-	/* if (instruction->opcode && strcmp(instruction->opcode, "push") == 0) */
+
 	if (instruction->opcode)
 	{
 		if (strcmp(instruction->opcode, "push") == 0)
@@ -28,6 +28,12 @@ instruction_t *parse_line(char *line)
 			instruction->f = pint;
 		if (strcmp(instruction->opcode, "pop") == 0)
 			instruction->f = pop;
+		if (strcmp(instruction->opcode, "swap") == 0)
+			instruction->f = swap;
+		if (strcmp(instruction->opcode, "add") == 0)
+			instruction->f = add;
+		if (strcmp(instruction->opcode, "nop") == 0)
+			instruction->f = nop;
 
 	}
 
