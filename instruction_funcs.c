@@ -1,20 +1,13 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <ctype.h>
 #include "monty.h"
+
 void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new;
 	int pVal;
-	/** tests if the push_arg was valid or not **/
-	if(!isInt(push_arg))
-	{
-		fprintf(stderr,"L%u: usage: push integer\n",line_number);
-		exit(EXIT_FAILURE);
-	}
-	else
-		pVal = atoi(push_arg);
+
+	UNUSED(line_number);
+
+	pVal = atoi(push_arg);
 	new = malloc(sizeof(stack_t));
 	if(new == NULL)
 	{
@@ -30,15 +23,18 @@ void push(stack_t **stack, unsigned int line_number)
 	else
 	{
 		/** puts new node on top if not empty **/
-		(*stack)->prev == new;
+		(*stack)->prev = new;
 		new->next = *stack;
 		*stack = new;
 	}
 
 }
+
 void pall(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmp;
+
+	UNUSED(line_number);
 
 	tmp = *stack;
 	while(tmp != NULL)
@@ -47,15 +43,17 @@ void pall(stack_t **stack, unsigned int line_number)
 		tmp = tmp->next;
 	}
 }
+
 void pint(stack_t **stack, unsigned int line_number)
 {
 	if (*stack == NULL)
 	{
-		fprintf(stderr,"L%d: can't pint, stack empty\n",line_number);
+		fprintf(stderr,"L%d: can't pint, stack empty\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	printf("%d\n",(*stack)->n);
 }
+
 void pop(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmp;
