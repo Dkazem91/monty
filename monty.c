@@ -51,7 +51,7 @@ int main(int argc, char **argv)
 		/*if push, tests if the push_arg was valid or not */
 		if (strcmp(instruction->opcode, "push") == 0 && !is_int(push_arg))
 		{
-			fprintf(stderr, "L%u: usage: push integer\n", line_number);
+			fprintf(stderr, "L<%u>: usage: push integer\n", line_number);
 			free(instruction);
 			if (top)
 				free_stack(top);
