@@ -21,7 +21,7 @@ int main(int argc, char **argv)
 	/* check for proper number of arguments */
 	if (argc != 2)
 	{
-		fprintf(stdin, "USAGE: monty file\n");
+		fprintf(stdout, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
 
@@ -29,7 +29,7 @@ int main(int argc, char **argv)
 	file_in = fopen(argv[1], "r");
 	if (file_in == NULL)
 	{
-		fprintf(stdin, "Error: Can't open file %s\n", argv[1]);
+		fprintf(stdout, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
 
@@ -51,7 +51,7 @@ int main(int argc, char **argv)
 		/*if push, tests if the push_arg was valid or not */
 		if (strcmp(instruction->opcode, "push") == 0 && !is_int(push_arg))
 		{
-			fprintf(stdin, "L%u: usage: push integer\n", line_number);
+			fprintf(stdout, "L%u: usage: push integer\n", line_number);
 			free(instruction);
 			if (top)
 				free_stack(top);
@@ -66,7 +66,7 @@ int main(int argc, char **argv)
 			instruction->f(&top, line_number);
 		else
 		{
-			fprintf(stdin, "L%d: unknown instruction %s\n",
+			fprintf(stdout, "L%d: unknown instruction %s\n",
 				line_number, instruction->opcode);
 			if (line)
 				free(line);

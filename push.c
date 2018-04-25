@@ -18,7 +18,7 @@ void push(stack_t **stack, unsigned int line_number)
 	new = malloc(sizeof(stack_t));
 	if (new == NULL)
 	{
-		fprintf(stdin, "Error: malloc failed\n");
+		fprintf(stdout, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
 	new->n = pVal;

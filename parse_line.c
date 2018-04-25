@@ -15,7 +15,7 @@ instruction_t *parse_line(char *line)
 	instruction = malloc(sizeof(*instruction));
 	if (instruction == NULL)
 	{
-		fprintf(stdin, "Error: malloc failed\n");
+		fprintf(stdout, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
 
