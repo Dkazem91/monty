@@ -1,5 +1,11 @@
 #include "monty.h"
 
+/**
+ * parse_line - parses through a line and returns the proper instruction
+ * @line: the line
+ *
+ * Return: a pointer to the proper instruction
+ */
 instruction_t *parse_line(char *line)
 {
 	char *opcode;

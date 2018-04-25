@@ -49,7 +49,7 @@ int main(int argc, char **argv)
 		}
 
 		/*if push, tests if the push_arg was valid or not */
-		if(strcmp(instruction->opcode, "push") == 0 && !is_int(push_arg))
+		if (strcmp(instruction->opcode, "push") == 0 && !is_int(push_arg))
 		{
 			fprintf(stderr, "L%u: usage: push integer\n", line_number);
 			free(instruction);
@@ -66,7 +66,8 @@ int main(int argc, char **argv)
 			instruction->f(&top, line_number);
 		else
 		{
-			fprintf(stderr, "L%d: unknown instruction %s\n", line_number, instruction->opcode);
+			fprintf(stderr, "L%d: unknown instruction %s\n",
+				line_number, instruction->opcode);
 			if (line)
 				free(line);
 			if (top)
@@ -86,5 +87,5 @@ int main(int argc, char **argv)
 		free(line);
 	free_stack(top);
 	fclose(file_in);
-	return(EXIT_SUCCESS);
+	return (EXIT_SUCCESS);
 }
