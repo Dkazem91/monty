@@ -39,8 +39,6 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-/* create a global variable to hold arguments for push */
-extern char *push_arg;
 
 instruction_t *parse_line(char *line);
 void free_stack(stack_t *head);
