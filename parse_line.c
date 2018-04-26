@@ -48,6 +48,8 @@ instruction_t *parse_line(char *line)
 			instruction->f = multiply;
 		if (strcmp(instruction->opcode, "mod") == 0)
 			instruction->f = moddy;
+		if (strcmp(instruction->opcode, "pchar") == 0)
+			instruction->f = pchar;
 	}
 
 	return (instruction);
