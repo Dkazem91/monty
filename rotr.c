@@ -1,6 +1,6 @@
 #include "monty.h"
 /**
- * rotl - rotates to the left
+ * rotr - rotates to the right
  * @stack: monty stack
  * @line_number: line number
  */
@@ -11,14 +11,17 @@ void rotr(stack_t **stack, unsigned int line_number)
 
 	UNUSED(line_number);
 	tmp = *stack;
-	while (tmp != NULL)
+	while (tmp->next != NULL)
 	{
-		if(tmp->prev)
-			tmp->n = tmp->prev->n;
-		if(!tmp->next)
-			lastVal = tmp->n;
 		tmp = tmp->next;
 	}
-	if((*stack))
-		(*stack)->n = lastVal;
+	if (tmp)
+		lastVal = tmp->n;
+	while (tmp->prev != NULL)
+	{
+		tmp->n = tmp->prev->n;
+		tmp = tmp->prev;
+	}
+	if (tmp)
+		tmp->n = lastVal;
 }
