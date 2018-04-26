@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * mul - multiplies the top two elements of the stack.
+ * multiply - multiplies the top two elements of the stack.
  * @stack: the stack
  * @line_number: the current line number
  *
